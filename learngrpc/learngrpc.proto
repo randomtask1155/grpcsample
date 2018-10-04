@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package learngrpc;
+
+// The greeting service definition.
+service Director {
+  // Sends a greeting
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+}
+
+// The request message containing the user's name.
+message HelloRequest {
+  string name = 1;
+  int64 duration = 2; // how long to wait before sending response
+  bool cancel = 3; // how long before timeing out context
+  bool fail = 4; // if true return error
+}
+
+// The response message containing the greetings
+message HelloReply {
+  string message = 1;
+}
+
+
